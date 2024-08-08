@@ -1,4 +1,3 @@
-import 'package:app_password/router/password_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -16,7 +15,7 @@ class PasswordFirstPage extends GetView<PasswordFirstLogic> {
                   width: 32, height: 32, fit: BoxFit.cover)
               .marginOnly(right: 20)
               .gestures(onTap: () {
-            Get.toNamed(PasswordNames.add)?.then((_) {
+            Get.toNamed('/add')?.then((_) {
               controller.getData();
             });
           })
@@ -98,7 +97,7 @@ class PasswordFirstPage extends GetView<PasswordFirstLogic> {
                             borderRadius: BorderRadius.circular(10))
                         .marginOnly(bottom: 15)
                         .gestures(onTap: () {
-                      Get.toNamed(PasswordNames.edit, arguments: entity)
+                      Get.toNamed('/edit', arguments: entity)
                           ?.then((_) {
                         controller.getData();
                       });

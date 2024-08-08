@@ -1,4 +1,3 @@
-import 'package:app_password/router/password_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -6,7 +5,7 @@ import 'package:styled_widget/styled_widget.dart';
 import 'password_third_logic.dart';
 
 class PasswordThirdPage extends GetView<PasswordThirdLogic> {
-  final titles = ['Clean records', 'Feedback', 'Privacy agreement', 'About us'];
+  final titles = ['Clean records', 'Feedback', 'About us'];
 
   Widget _item(int index, BuildContext context) {
     return Container(
@@ -28,12 +27,9 @@ class PasswordThirdPage extends GetView<PasswordThirdLogic> {
           controller.cleanPWData();
           break;
         case 1:
-          Get.toNamed(PasswordNames.feedback);
+          Get.toNamed('/feedback');
           break;
         case 2:
-          controller.aboutPWPrivacy(context);
-          break;
-        case 3:
           controller.aboutPWUS(context);
           break;
       }
@@ -56,7 +52,6 @@ class PasswordThirdPage extends GetView<PasswordThirdLogic> {
             _item(0, context),
             _item(1, context),
             _item(2, context),
-            _item(3, context)
           ].toColumn(),
         ).marginAll(15)),
       ),

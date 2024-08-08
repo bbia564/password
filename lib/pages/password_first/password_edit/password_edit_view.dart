@@ -1,5 +1,4 @@
 import 'package:app_password/main.dart';
-import 'package:app_password/router/password_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -20,7 +19,7 @@ class PasswordEditPage extends GetView<PasswordEditLogic> {
             'Edit',
             style: TextStyle(color: primaryColor, fontSize: 14),
           ).marginOnly(right: 20).gestures(onTap: () {
-            Get.toNamed(PasswordNames.add, arguments: controller.entity)
+            Get.toNamed('/add', arguments: controller.entity)
                 ?.then((value) {
               if (value != null) {
                 controller.entity = value;

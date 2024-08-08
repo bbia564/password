@@ -1,8 +1,24 @@
 import 'package:app_password/db_password/db_password.dart';
-import 'package:app_password/router/password_names.dart';
-import 'package:app_password/router/password_pages.dart';
+import 'package:app_password/pages/password_first/password_add/password_add_binding.dart';
+import 'package:app_password/pages/password_first/password_add/password_add_view.dart';
+import 'package:app_password/pages/password_first/password_edit/password_edit_binding.dart';
+import 'package:app_password/pages/password_first/password_edit/password_edit_view.dart';
+import 'package:app_password/pages/password_first/password_first_binding.dart';
+import 'package:app_password/pages/password_first/password_first_view.dart';
+import 'package:app_password/pages/password_make/binding.dart';
+import 'package:app_password/pages/password_make/view.dart';
+import 'package:app_password/pages/password_second/password_second_binding.dart';
+import 'package:app_password/pages/password_second/password_second_view.dart';
+import 'package:app_password/pages/password_tab/password_tab_binding.dart';
+import 'package:app_password/pages/password_tab/password_tab_view.dart';
+import 'package:app_password/pages/password_third/feedback/feedback_binding.dart';
+import 'package:app_password/pages/password_third/feedback/feedback_view.dart';
+import 'package:app_password/pages/password_third/password_third_binding.dart';
+import 'package:app_password/pages/password_third/password_third_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'db_password/too.dart';
 
 
 Color primaryColor = const Color(0xfff5902c);
@@ -21,8 +37,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      getPages: PasswordPages.list,
-      initialRoute: PasswordNames.passwordTab,
+      getPages: PLists,
+      initialRoute:'/main',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -73,3 +89,14 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+List<GetPage<dynamic>> PLists = [
+  GetPage(name: '/main', page: () => const PassInPage(),binding: PassIndexBind()),
+  GetPage(name: '/passwordTab', page: () => PasswordTabPage(),binding: PasswordTabBinding()),
+  GetPage(name: '/passwordFirst', page: () => PasswordFirstPage(),binding: PasswordFirstBinding()),
+  GetPage(name: '/passwordSecond', page: () => PasswordSecondPage(),binding: PasswordSecondBinding()),
+  GetPage(name: '/passwordThird', page: () => PasswordThirdPage(),binding: PasswordThirdBinding()),
+  GetPage(name: '/passwordToo', page: () => PassToo()),
+  GetPage(name: '/feedback', page: () => FeedbackPage(),binding: FeedbackBinding()),
+  GetPage(name: '/add', page: () => PasswordAddPage(), binding: PasswordAddBinding()),
+  GetPage(name: '/edit', page: () => PasswordEditPage(),binding: PasswordEditBinding())
+];
